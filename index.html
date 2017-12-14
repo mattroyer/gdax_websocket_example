@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gdax WebSockets</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+  </head>
+  <body>
+    <div id="app">
+
+      <div class="currency" v-for="value in coins">
+
+        <div class="product_name">
+          <span>{{ value.product_id | nameify }}</span>
+        </div>
+        <p>${{ value.price | dollar }}</p>
+        <p>Open 24h: ${{ value.open_24h | dollar }}</p>
+
+        <div class="h_24">
+          <p><strong>Low:</strong> ${{ value.low_24h | dollar }}</p>
+          <p><strong>High:</strong> ${{ value.high_24h | dollar }}</p>
+        </div>
+
+        <div class="volume">
+          <h5>Volume</h5>
+          <p><strong>24h:</strong> ${{ value.volume_24h | dollar }}</p>
+          <p><strong>30d:</strong> ${{ value.volume_30d | dollar }}</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>
